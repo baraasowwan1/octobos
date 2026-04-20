@@ -8,7 +8,7 @@ export function Navigation() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path) => location.pathname === path;
 
   const navLinks = [
     { path: '/', label: t('home') },
@@ -20,14 +20,16 @@ export function Navigation() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <nav className="bg-primary text-primary-foreground shadow-lg">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-primary text-primary-foreground shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
+
+          {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img
               src="https://i.im.ge/eBIim8/Untitled_design_1_.png"
               alt="OCTOPUS Logo"
-              className="h-12 md:h-16 w-auto"
+              className="h-14 md:h-16 w-auto"
             />
             <div className="flex flex-col">
               <span className="text-lg md:text-2xl font-bold leading-tight">Octopus</span>
@@ -58,13 +60,29 @@ export function Navigation() {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-md hover:bg-primary/80 transition-colors"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center gap-2">
+
+            {/* زر اللغة */}
+            <button
+              onClick={toggleLanguage}
+              className="p-2 rounded-md bg-primary-foreground text-primary"
+            >
+              <Languages className="w-5 h-5" />
+            </button>
+
+            {/* زر القائمة */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-md hover:bg-primary/80 transition-colors"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -82,16 +100,6 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={() => {
-                toggleLanguage();
-                closeMobileMenu();
-              }}
-              className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-md bg-primary-foreground text-primary hover:bg-accent transition-colors"
-            >
-              <Languages className="w-4 h-4" />
-              <span>{language === 'ar' ? 'EN' : 'عربي'}</span>
-            </button>
           </div>
         )}
       </div>
