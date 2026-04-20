@@ -53,24 +53,32 @@ export function Home() {
         {/* المحتوى */}
         <div className="relative z-10 text-center text-white px-4 flex flex-col items-center">
 
-          {/* الشعار */}
-          <img
-            src="https://i.im.ge/eBIjhY/Untitled_design_2_.png"
-            alt="Octopus Logo"
-            className="w-28 md:w-36 mb-4 drop-shadow-lg"
-          />
+  {/* الشعار */}
+  <img
+    src="https://i.im.ge/eBIjhY/Untitled_design_2_.png"
+    alt="Octopus Logo"
+    className="w-28 md:w-36 mb-4 drop-shadow-lg"
+  />
 
-          {/* العنوان */}
-          <h1 className="text-4xl md:text-5xl mb-4">
-            {t('welcomeTitle')}
-          </h1>
+  {/* العنوان */}
+  <h1 className="text-4xl md:text-5xl mb-4">
+    {t('welcomeTitle')}
+  </h1>
 
-          {/* النص */}
-          <p className="text-xl md:text-2xl">
-            {t('welcomeSubtitle')}
-          </p>
+  {/* النص */}
+  <p className="text-xl md:text-2xl">
+    {t('welcomeSubtitle')}
+  </p>
 
-        </div>
+  {/* زر الاتصال */}
+  <a
+    href="tel:0799010111"
+    className="mt-6 bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition"
+  >
+    اتصل بنا
+  </a>
+
+</div>
       </section>
 
       {/* SERVICES */}
