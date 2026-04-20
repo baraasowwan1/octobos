@@ -29,15 +29,28 @@ export function Home() {
       {/* HERO SECTION */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
 
-        <div className="absolute inset-0">
+        {/* صورة الديسكتوب */}
+        <div className="absolute inset-0 hidden md:block">
           <ImageWithFallback
             src="https://i.im.ge/eBImbD/WhatsApp_Image_2026-04-20_at_2.58.00_PM.jpg"
-            alt="Hero"
+            alt="Hero Desktop"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/50" />
         </div>
 
+        {/* صورة الموبايل */}
+        <div className="absolute inset-0 block md:hidden">
+          <ImageWithFallback
+            src="https://scontent.famm5-1.fna.fbcdn.net/v/t39.30808-6/494425291_1327151918989004_5955096494584582702_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=13d280&_nc_ohc=O1p6TSX61v4Q7kNvwGIh8Pk&_nc_oc=AdpcTmVq2r7Nw9Pvzi6cs3Iy5iRkLIiu4JPP1jSopG687KlF5ORPJ24tClZ7pyjO-ZnlAJ_dqVZ1BlZWZEylL6KU&_nc_zt=23&_nc_ht=scontent.famm5-1.fna&_nc_gid=QaQRBgDvJj7e_GyEWJCfzg&_nc_ss=7a3a8&oh=00_Af2T9HDc90rRRDDvAy8bH0ex2FRcbZFzuOVkVla047Esig&oe=69EBDF98"
+            alt="Hero Mobile"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* طبقة تغبيش */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        {/* المحتوى */}
         <div className="relative z-10 text-center text-white px-4 flex flex-col items-center">
 
           {/* الشعار */}
@@ -52,7 +65,7 @@ export function Home() {
             {t('welcomeTitle')}
           </h1>
 
-          {/* النص الفرعي */}
+          {/* النص */}
           <p className="text-xl md:text-2xl">
             {t('welcomeSubtitle')}
           </p>
@@ -62,28 +75,40 @@ export function Home() {
 
       {/* SERVICES */}
       <section className="py-20 container mx-auto px-4">
-        <h2 className="text-4xl text-center mb-12">{t('ourServices')}</h2>
+
+        <h2 className="text-4xl text-center mb-12">
+          {t('ourServices')}
+        </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
+
           {services.map((service, index) => (
             <div
               key={index}
               className="bg-card p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow"
             >
+
               <div className="flex justify-center mb-4 text-primary">
                 {service.icon}
               </div>
-              <h3 className="mb-4">{service.title}</h3>
+
+              <h3 className="mb-4">
+                {service.title}
+              </h3>
+
               <p className="text-muted-foreground">
                 {service.description}
               </p>
+
             </div>
           ))}
+
         </div>
       </section>
 
       {/* FEATURES */}
       <section className="bg-secondary py-16">
+
         <div className="container mx-auto px-4 text-center">
 
           <div className="max-w-3xl mx-auto space-y-8">
